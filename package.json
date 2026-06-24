@@ -1,0 +1,13 @@
+{
+  "name": "cabo-de-guerra-lp-latam",
+  "version": "1.0.0",
+  "description": "Juego de la Cuerda Educativo Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve",
+    "start": "serve"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
