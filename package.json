@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "dev": "serve",
+    "build": "node build.js",
     "start": "serve"
   },
   "dependencies": {
