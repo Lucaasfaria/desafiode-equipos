@@ -24,9 +24,9 @@ fs.mkdirSync('dist');
 // Copy index.html
 fs.copyFileSync('index.html', 'dist/index.html');
 
-// Copy public directory to dist/public to preserve path structures
-if (fs.existsSync('public')) {
-  copyFolderSync('public', 'dist/public');
+// Copy assets directory to dist/assets to preserve path structures
+if (fs.existsSync('assets')) {
+  copyFolderSync('assets', 'dist/assets');
 }
 
 console.log('Build completed successfully! Files copied to dist/.');
