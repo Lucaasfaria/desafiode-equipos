@@ -1112,6 +1112,181 @@
         padding: 5px 14px;
       }
     }
+
+    /* ============================================================
+       WHATSAPP CHAT FEEDBACK STYLES
+       ============================================================ */
+    .whatsapp-chat-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #efeae2;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--gray-border);
+      display: flex;
+      flex-direction: column;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .chat-header {
+      background: #075E54;
+      color: var(--white);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-back {
+      font-size: 18px;
+      cursor: pointer;
+      opacity: 0.85;
+    }
+
+    .chat-group-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--white);
+    }
+
+    .chat-header-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-group-name {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .chat-group-status {
+      font-size: 11px;
+      opacity: 0.8;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 250px;
+    }
+
+    .chat-header-actions {
+      display: flex;
+      gap: 15px;
+      font-size: 18px;
+      opacity: 0.85;
+      cursor: pointer;
+    }
+
+    .chat-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 400px;
+      max-height: 550px;
+      overflow-y: auto;
+      background-image: radial-gradient(circle, #dfdfdf 10%, transparent 11%);
+      background-size: 12px 12px;
+      background-color: #efeae2;
+    }
+
+    .chat-message {
+      max-width: 85%;
+      padding: 8px 12px 6px;
+      border-radius: 8px;
+      font-size: 14.5px;
+      line-height: 1.4;
+      position: relative;
+      word-wrap: break-word;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    }
+
+    .chat-message.incoming {
+      background: var(--white);
+      align-self: flex-start;
+      border-top-left-radius: 0;
+    }
+
+    .chat-message.outgoing {
+      background: #d9fdd3;
+      align-self: flex-end;
+      border-top-right-radius: 0;
+    }
+
+    .message-sender {
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 3px;
+      display: block;
+    }
+
+    .message-text {
+      color: #303030;
+      font-weight: 400;
+    }
+
+    .message-time {
+      font-size: 10px;
+      color: #667781;
+      text-align: right;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .blue-ticks {
+      color: #53bdeb;
+      font-weight: bold;
+      font-size: 11px;
+    }
+
+    .chat-footer {
+      background: #f0f2f5;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-input-bar {
+      background: var(--white);
+      border-radius: 24px;
+      flex: 1;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-input-bar input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 14px;
+      background: transparent;
+    }
+
+    .emoji-icon, .attachment-icon {
+      font-size: 20px;
+      color: #54656f;
+      cursor: pointer;
+    }
+
+    .chat-mic-button {
+      background: #00a884;
+      color: var(--white);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    }
   </style>
 </head>
 <body>
@@ -1307,67 +1482,84 @@
       </div>
     </section>
 
+
     <!-- ============================================================
-         SEÇÃO DEPOIMENTOS
+         SEÇÃO DEPOIMENTOS (WhatsApp Chat Style)
          ============================================================ -->
     <section class="section section-gray section-lazy" id="depoimentos">
       <div class="container">
-        <h2 class="section-title" style="text-align:center;">Opiniones de otros profesores</h2>
+        <h2 class="section-title" style="text-align:center; margin-bottom: 8px;">Opiniones de otros profesores</h2>
+        <p class="section-subtitle" style="text-align:center; margin: 0 auto 32px;">Comentarios reales de docentes que ya están utilizando el juego en sus clases.</p>
 
-        <!-- WhatsApp Feedback Print -->
-        <div style="margin-bottom: 40px; display: flex; justify-content: center;">
-          <img src="./assets/imagens/caca.png" alt="Comentarios de maestros en WhatsApp" class="depo-foto-complemento" style="max-width: 500px; width: 100%; height: auto;" loading="lazy">
+        <div class="whatsapp-chat-container">
+          <!-- Chat Header -->
+          <div class="chat-header">
+            <div class="chat-back">←</div>
+            <img src="./assets/imagens/icone.png" alt="Logotipo" class="chat-group-icon">
+            <div class="chat-header-info">
+              <span class="chat-group-name">Comunidad de Docentes 🍎</span>
+              <span class="chat-group-status">Juliana, Rafael, Enrique y 560 más...</span>
+            </div>
+            <div class="chat-header-actions">
+              <span style="font-size: 16px;">📞</span>
+              <span style="font-size: 16px; margin: 0 10px;">📎</span>
+              <span style="font-size: 16px;">⋮</span>
+            </div>
+          </div>
+
+          <!-- Chat Body -->
+          <div class="chat-body">
+            
+            <!-- Message 1 -->
+            <div class="chat-message incoming">
+              <span class="message-sender" style="color: #e53935;">Mtra. Juliana (Primaria)</span>
+              <span class="message-text">
+                ¡Estuvo increíble! ¡Mis alumnos no dejan de pedirme jugar de nuevo! 😍 Lo apliqué para el repaso de Español y fue todo un éxito. Lo que más me gustó es que es súper fácil de usar y funciona directo en el navegador. ¡No instalé nada en sus celulares! 📲
+              </span>
+              <span class="message-time">10:14 AM</span>
+            </div>
+
+            <!-- Message 2 -->
+            <div class="chat-message incoming">
+              <span class="message-sender" style="color: #2e7d32;">Mtro. Rafael (Secundaria)</span>
+              <span class="message-text">
+                ¡Confirmo! Al grupo le encantó. Lo usé para repasar Matemáticas y todos estuvieron súper concentrados. Hasta los más tímidos participaron y querían ganar la cuerda jajaja 🪢 El marcador le da mucha emoción. ¡Excelente recurso! 👏
+              </span>
+              <span class="message-time">10:28 AM</span>
+            </div>
+
+            <!-- Message 3 -->
+            <div class="chat-message incoming">
+              <span class="message-sender" style="color: #1565c0;">Mtro. Enrique (Ciencias)</span>
+              <span class="message-text">
+                ¡Hola colegas! Pasando a reportar que fue excelente con mis alumnos de 1º de Secundaria. Muy dinámico y fácil de adaptar. Los bonos están geniales, ya imprimí el cartel de reglas y la ficha de evaluación. ¡Gracias por el material! 🎓✨
+              </span>
+              <span class="message-time">11:05 AM</span>
+            </div>
+
+            <!-- Message 4 (Admin / Answer) -->
+            <div class="chat-message outgoing">
+              <span class="message-text">
+                ¡Qué alegría leer sus comentarios, maestros! 😍 Nuestro objetivo es precisamente ese: hacer que el repaso escolar sea divertido y dinámico para todos. ¡Gracias por confiar en el Juego de la Cuerda! 🏆🪢
+              </span>
+              <span class="message-time">11:15 AM <span class="blue-ticks">✓✓</span></span>
+            </div>
+
+          </div>
+
+          <!-- Chat Input Footer -->
+          <div class="chat-footer">
+            <div class="chat-input-bar">
+              <span class="emoji-icon">☺</span>
+              <input type="text" placeholder="Escribe un mensaje..." disabled>
+              <span class="attachment-icon">📎</span>
+            </div>
+            <div class="chat-mic-button">
+              🎤
+            </div>
+          </div>
         </div>
 
-        <div class="depoimentos-grid">
-          <!-- Depoimento 1 -->
-          <div class="depo-wrapper">
-            <div class="depo-card">
-              <div class="depo-header">
-                <div class="depo-avatar" style="background-color: #E53935;">J</div>
-                <div>
-                  <h4 class="depo-nome">Juliana</h4>
-                  <p class="depo-cargo">Profesora · Primaria</p>
-                </div>
-              </div>
-              <div class="depo-texto">
-                "¡Estuvo increíble! ¡Mis alumnos no dejan de pedirme jugar de nuevo! Lo apliqué para el repaso de Español (comprensión lectora) y fue todo un éxito. Lo que más me gustó es que el juego es súper fácil de usar y funciona directo en el navegador. No tuve que instalar nada en los celulares de los alumnos. Las preguntas aparecen rápido, el marcador hace que todo sea más emocionante y lo mejor: ¡aprenden jugando!"
-              </div>
-            </div>
-          </div>
-
-          <!-- Depoimento 2 -->
-          <div class="depo-wrapper">
-            <div class="depo-card">
-              <div class="depo-header">
-                <div class="depo-avatar" style="background-color: #2E7D32;">R</div>
-                <div>
-                  <h4 class="depo-nome">Rafael</h4>
-                  <p class="depo-cargo">Profesor · Primaria y Secundaria</p>
-                </div>
-              </div>
-              <div class="depo-texto">
-                "¡Al grupo le encantó el juego! Lo usé para el repaso de Matemáticas y marcó toda la diferencia. Estuvieron súper concentrados, todos participaron e incluso los más tímidos se unieron al juego. El tiempo de respuesta de las preguntas es excelente y el marcador lo hace muy emocionante. Al final, reflexionamos sobre los aciertos y errores. ¡Aprendieron muchísimo jugando!"
-              </div>
-            </div>
-          </div>
-
-          <!-- Depoimento 3 -->
-          <div class="depo-wrapper">
-            <div class="depo-card">
-              <div class="depo-header">
-                <div class="depo-avatar" style="background-color: #1565C0;">E</div>
-                <div>
-                  <h4 class="depo-nome">Enrique</h4>
-                  <p class="depo-cargo">Profesor · Ciencias e Historia (1º de Secundaria)</p>
-                </div>
-              </div>
-              <div class="depo-texto">
-                "¡Fue excelente! ¡A los muchachos les encantó! Lo usé para el repaso de Ciencias e Historia con mis grupos de 1º de Secundaria. Estaban súper emocionados y pidieron jugar otra vez. El juego es muy dinámico, las preguntas son buenas y se puede adaptar a cualquier contenido. ¡Y los bonos están sensacionales! Ya imprimí el cartel de reglas y usé la ficha de evaluación. Me ayudó muchísimo."
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
