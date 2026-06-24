@@ -197,7 +197,8 @@
       z-index: 10;
       cursor: pointer;
       border-radius: var(--radius-md);
-      background: transparent;
+      background: rgba(0, 0, 0, 0.001);
+      pointer-events: auto;
     }
 
     .hero .subheadline {
@@ -1635,7 +1636,9 @@
       }
 
       if (overlay) {
-        overlay.addEventListener('click', function () {
+        overlay.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
           if (!player || typeof player.getPlayerState !== 'function') return;
           var state = player.getPlayerState();
           if (state === 1) { // Playing
@@ -1643,6 +1646,15 @@
           } else {
             player.playVideo();
           }
+        });
+
+        overlay.addEventListener('dblclick', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+
+        overlay.addEventListener('touchend', function (e) {
+          e.stopPropagation();
         });
       }
 
